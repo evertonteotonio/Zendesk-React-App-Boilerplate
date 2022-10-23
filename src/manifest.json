@@ -1,7 +1,7 @@
 {
-  "name": "Painel Datasul",
+  "name": "Aplicação base",
   "author": {
-    "name": "zxperience",
+    "name": "Everton Teotonio",
     "email": "evertontt@gmail.com"
   },
   "defaultLocale": "en",
@@ -23,49 +23,8 @@
   },
   "version": "1.0",
   "frameworkVersion": "2.0",
-  "domainWhitelist": ["pdi-zxlab.zendesk.com", "sls-zxlab.zendesk.com", "consigaz.zendesk.com"],
+  "domainWhitelist": [
+  ],
   "parameters": [
-    {
-      "name": "form_cpfcnpj_id",
-      "type": "number",
-      "secure": false,
-      "required": true,
-      "default": 6419509229975
-    },
-    {
-      "name": "consigaz_endpoint",
-      "type": "text",
-      "secure": false,
-      "required": true,
-      "default": "https://itdna.grupomir.com.br/consigaz"
-    },
-    {
-      "name": "api_username",
-      "type": "text",
-      "secure": false,
-      "required": true,
-      "default": "mmeyer@zxperience.com"
-    },
-    {
-      "name": "api_password",
-      "type": "text",
-      "secure": false,
-      "required": true,
-      "default": "8A06J4XNSdoAIfAhtHytYxhLfrFQvLjn3kSciwXz"
-    },
-    {
-      "name": "api_datasul_username",
-      "type": "text",
-      "secure": false,
-      "required": true,
-      "default": "ZendeskPRD"
-    },
-    {
-      "name": "api_datasul_password",
-      "type": "text",
-      "secure": false,
-      "required": true,
-      "default": "rt$Gfu#prHY"
-    }
   ]
 }

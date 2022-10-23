@@ -5,6 +5,11 @@ const CopyWebpackPlugin = require("copy-webpack-plugin")
 const TranslationsPlugin = require('./webpack/translations-plugin')
 
 module.exports = {
+  performance: {
+    hints: false,
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000,
+  },
   output: {
     path: path.resolve(__dirname, 'dist/assets'),
     filename: '[name].[contenthash].bundle.js',
