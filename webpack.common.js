@@ -1,13 +1,21 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require("path")
+const HtmlWebpackPlugin = require("html-webpack-plugin")
+const CleanWebpackPlugin = require('clean-webpack-plugin')
+const CopyWebpackPlugin = require("copy-webpack-plugin")
+const TranslationsPlugin = require('./webpack/translations-plugin')
 
 module.exports = {
   output: {
-    path: path.resolve("dist", "assets"),
-    filename: "bundle.js",
+    path: path.resolve(__dirname, 'dist/assets'),
+    filename: '[name].[contenthash].bundle.js',
   },
   module: {
     rules: [
+      {
+        test: /\.mjs$/,
+        include: /node_modules/,
+        type: 'javascript/auto',
+      },
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
@@ -45,9 +53,21 @@ module.exports = {
     zendesk_app_framework_sdk: "ZAFClient",
   },
   plugins: [
+    new CleanWebpackPlugin(['dist/*']),
+
     new HtmlWebpackPlugin({
       template: "src/index.html",
       hash: true,
     }),
+
+    new CopyWebpackPlugin([
+      { from: "src/manifest.json", to: "../" },
+      { from: 'src/images/*', to: '.', flatten: true },
+    ]),
+
+    new TranslationsPlugin({
+      path: path.resolve(__dirname, './src/translations'),
+    }),
+
   ],
-};
+}
